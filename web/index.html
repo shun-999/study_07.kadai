@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>翻訳機</title>
+    </head>
+    <body>
+        <header>
+            <h1>翻訳機</h1>
+        </header>
+        <h3>入力</h3>
+        <form name="form">
+            <textarea name="word" id="word" type="textarea"></textarea>
+            <button name="translate" id="translate" type="button">送信</button>
+        </form>
+        <h3>結果</h3>
+        <textarea name="result" id="result" type="textarea"></textarea>
+        <script type="text/javascript" src="./eel.js"></script>
+        <script>
+            translate.addEventListener("click", () => {
+                eel.translate(form.word.value);
+            });
+
+            eel.expose(translate_result);
+            function translate_result(content) {
+                result.value = content;
+            }
+        </script>
+    </body>
+</html>
